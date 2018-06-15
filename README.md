@@ -15,7 +15,7 @@ It is based on **Ruby:2.3.3** image with:
 docker build -t klarx/wercker-ci .
 ```
 
-## Push
+## Push
 
 ```bash
 docker push klarx/wercker-ci
