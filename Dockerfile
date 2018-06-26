@@ -11,3 +11,8 @@ RUN cd /tmp \
 	&& wget "https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-linux-x86_64.tar.bz2" \
 	&& tar xfj phantomjs-2.1.1-linux-x86_64.tar.bz2 \
 	&& cp /tmp/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
+RUN gem install bundler --no-rdoc --no-ri --version=">=1.5.2"
+COPY Gemfile* /tmp/
+WORKDIR /tmp
+RUN bundle install --path /cache
+WORKDIR /
