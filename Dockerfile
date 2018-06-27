@@ -13,6 +13,9 @@ RUN cd /tmp \
 	&& cp /tmp/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
 RUN gem install bundler --no-rdoc --no-ri --version=">=1.5.2"
 COPY Gemfile* /tmp/
+COPY package.json /tmp/
+COPY yarn.lock /tmp/
 WORKDIR /tmp
 RUN bundle install --path /cache
+RUN yarn --pure-lockfile
 WORKDIR /
