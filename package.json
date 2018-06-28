@@ -27,6 +27,7 @@
     "js-marker-clusterer": "^1.0.0",
     "karma-es6-shim": "^1.0.0",
     "moment": "^2.21.0",
+    "nprogress": "^0.2.0",
     "progressbar.js": "^1.0.1",
     "remove": "^0.1.5",
     "spectrum-colorpicker": "^1.8.0",
