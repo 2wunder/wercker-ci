@@ -125,6 +125,7 @@ gem 'bugsnag'
 gem 'hubspot-ruby'
 
 group :development do
+  gem 'puma', '~> 3.0'
   gem 'rack-mini-profiler', require: false
   gem 'rails-erd'
   gem 'meta_request'

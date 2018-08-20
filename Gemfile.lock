@@ -901,6 +901,7 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     public_suffix (3.0.2)
+    puma (3.12.0)
     rack (1.6.10)
     rack-contrib (1.8.0)
       rack (~> 1.4)
@@ -1169,6 +1170,7 @@ DEPENDENCIES
   poltergeist
   pry-rails
   pry-stack_explorer
+  puma (~> 3.0)
   rack-mini-profiler
   rack_session_access
   rails (= 4.2.10)
