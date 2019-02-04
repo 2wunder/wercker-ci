@@ -15,7 +15,7 @@ RUN sudo npm install -g yarn
 # RUN sudo apt-get update -y
 # RUN sudo apt-get install -y google-chrome-stable
 # Set up Chromedriver Environment variables
-ENV CHROMEDRIVER_VERSION 2.43
+ENV CHROMEDRIVER_VERSION 2.46
 ENV CHROMEDRIVER_DIR /chromedriver
 RUN sudo mkdir $CHROMEDRIVER_DIR
 # Download and install Chromedriver
@@ -32,4 +32,4 @@ RUN sudo chmod a+x /etc/init.d/xvfb
 ADD xvfb-daemon-run /usr/bin/xvfb-daemon-run
 RUN sudo chmod a+x /usr/bin/xvfb-daemon-run
 
-RUN gem install bundler --no-rdoc --no-ri --version=">=1.5.2"
+RUN gem install bundler --version=">=1.17.0"
