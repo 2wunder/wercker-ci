@@ -2,7 +2,7 @@ FROM circleci/ruby:2.5.3-browsers
 RUN sudo apt-get update \
     && sudo apt-get install -y curl wget \
     && sudo apt-get -y autoclean
-RUN sudo apt install -y -q libpangocairo-1.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libgconf2-4 libasound2 libatk1.0-0 libgtk-3-0 wget xvfb unzip
+RUN sudo apt install -y -q libpangocairo-1.0-0 libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libgconf2-4 libasound2 libatk1.0-0 libgtk-3-0 wget xvfb unzip cmake
 RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo bash && \
     sudo apt-get install -y nodejs build-essential
 RUN sudo npm install -g yarn
@@ -32,4 +32,4 @@ RUN sudo chmod a+x /etc/init.d/xvfb
 ADD xvfb-daemon-run /usr/bin/xvfb-daemon-run
 RUN sudo chmod a+x /usr/bin/xvfb-daemon-run
 
-RUN gem install bundler --version=">=1.17.0"
+RUN gem install bundler --version=">=1.17.3"
