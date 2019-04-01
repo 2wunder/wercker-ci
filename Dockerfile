@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.5.3-browsers
+FROM circleci/ruby:2.6.2-browsers
 RUN sudo apt-get update \
     && sudo apt-get install -y curl wget \
     && sudo apt-get -y autoclean
@@ -15,7 +15,8 @@ RUN sudo npm install -g yarn
 # RUN sudo apt-get update -y
 # RUN sudo apt-get install -y google-chrome-stable
 # Set up Chromedriver Environment variables
-ENV CHROMEDRIVER_VERSION 2.46
+# https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
+ENV CHROMEDRIVER_VERSION 73.0.3683.68
 ENV CHROMEDRIVER_DIR /chromedriver
 RUN sudo mkdir $CHROMEDRIVER_DIR
 # Download and install Chromedriver
