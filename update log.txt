@@ -1,0 +1,66 @@
+HEADS UP! i18n 1.1 changed fallbacks to exclude default locale.
+But that may break your application.
+
+Please check your Rails app for 'config.i18n.fallbacks = true'.
+If you're using I18n (>= 1.1.0) and Rails (< 5.2.2), this should be
+'config.i18n.fallbacks = [I18n.default_locale]'.
+If not, fallbacks will be broken in your app by I18n 1.1.x.
+
+For more info see:
+https://github.com/svenfuchs/i18n/releases/tag/v1.1.0
+
+Post-install message from capistrano-passenger:
+==== Release notes for capistrano-passenger ====
+passenger once had only one way to restart: `touch tmp/restart.txt`
+Beginning with passenger v4.0.33, a new way was introduced: `passenger-config restart-app`
+
+The new way to restart was not initially practical for everyone,
+since for versions of passenger prior to v5.0.10,
+it required your deployment user to have sudo access for some server configurations.
+
+capistrano-passenger gives you the flexibility to choose your restart approach, or to rely on reasonable defaults.
+
+If you want to restart using `touch tmp/restart.txt`, add this to your config/deploy.rb:
+
+    set :passenger_restart_with_touch, true
+
+If you want to restart using `passenger-config restart-app`, add this to your config/deploy.rb:
+
+    set :passenger_restart_with_touch, false # Note that `nil` is NOT the same as `false` here
+
+If you don't set `:passenger_restart_with_touch`, capistrano-passenger will check what version of passenger you are running
+and use `passenger-config restart-app` if it is available in that version.
+
+If you are running passenger in standalone mode, it is possible for you to put passenger in your
+Gemfile and rely on capistrano-bundler to install it with the rest of your bundle.
+If you are installing passenger during your deployment AND you want to restart using `passenger-config restart-app`,
+you need to set `:passenger_in_gemfile` to `true` in your `config/deploy.rb`.
+================================================
+Post-install message from chromedriver-helper:
+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |  NOTICE: chromedriver-helper is deprecated after 2019-03-31.       |
+  |                                                                    |
+  |  Please update to use the 'webdrivers' gem instead.                |
+  |  See https://github.com/flavorjones/chromedriver-helper/issues/83  |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+
+Post-install message from httparty:
+When you HTTParty, you must party hard!
+Post-install message from image_optim:
+Rails image assets optimization is extracted into image_optim_rails gem
+You can safely remove `config.assets.image_optim = false` if you are not going to use that gem
+Post-install message from sass:
+
+Ruby Sass is deprecated and will be unmaintained as of 26 March 2019.
+
+* If you use Sass as a command-line tool, we recommend using Dart Sass, the new
+  primary implementation: https://sass-lang.com/install
+
+* If you use Sass as a plug-in for a Ruby web framework, we recommend using the
+  sassc gem: https://github.com/sass/sassc-ruby#readme
+
+* For more details, please refer to the Sass blog:
+  http://sass.logdown.com/posts/7081811

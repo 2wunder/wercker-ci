@@ -28,6 +28,9 @@ ENV PATH $CHROMEDRIVER_DIR:$PATH
 
 # Install Xvfb init script
 ENV DISPLAY :99
+RUN sudo mkdir /tmp/.X11-unix
+RUN sudo chmod 1777 /tmp/.X11-unix
+RUN sudo chown root /tmp/.X11-unix/
 ADD xvfb_init /etc/init.d/xvfb
 RUN sudo chmod a+x /etc/init.d/xvfb
 ADD xvfb-daemon-run /usr/bin/xvfb-daemon-run
